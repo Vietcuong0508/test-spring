@@ -1,10 +1,19 @@
 package com.example.springboot.repository;
 
 import com.example.springboot.entity.Product;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-@Repository
-public interface ProductRepository extends JpaRepository<Product, Integer> {
+import java.util.List;
 
+@Repository
+@Qualifier("productRepositoryNew")
+public interface ProductRepository extends JpaRepository<Product, Integer> {
+    List<Product> findAllByNameContains(String name);
+    List<Product> findAllByNameContainsOrPriceLessThanEqualAndStatusEquals(String name, double price, int status);
+    @Query(value = "select * from products p where p.name like :name", nativeQuery = true)
+    List<Product> search(@Param("name") String name);
 }
