@@ -11,13 +11,10 @@ import javax.persistence.*;
 @ToString
 @Builder
 @Entity
-@Table(name = "products")
-public class Product {
+@Table(name = "categorys")
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
-    @ManyToOne
-    @JoinColumn(name = "categoryId")
-    private Category category;
 }

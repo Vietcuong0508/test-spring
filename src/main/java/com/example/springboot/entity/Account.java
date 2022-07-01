@@ -8,16 +8,16 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 @Builder
+@ToString
 @Entity
-@Table(name = "products")
-public class Product {
+@Table(name = "accounts")
+public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
-    @ManyToOne
-    @JoinColumn(name = "categoryId")
-    private Category category;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "identityCardId")
+    private IdentityCard identityCard;
 }

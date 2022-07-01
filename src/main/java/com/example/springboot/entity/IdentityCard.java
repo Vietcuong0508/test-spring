@@ -9,15 +9,11 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@Builder
 @Entity
-@Table(name = "products")
-public class Product {
+@Table(name = "identity_Card")
+public class IdentityCard {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String name;
-    @ManyToOne
-    @JoinColumn(name = "categoryId")
-    private Category category;
+    private String fullname;
 }
