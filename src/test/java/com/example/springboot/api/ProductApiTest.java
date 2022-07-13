@@ -38,18 +38,18 @@ class ProductApiTest {
                 .build();
     }
 
-    @Test
-    public void requestBodyTest() {
-        try {
-            when(productApi.findAll()).thenReturn((ResponseEntity<List<Product>>) productRepository.findAll());
-            mockMvc
-                    .perform(get("/api/v1/products")
-                            .content(String.valueOf(new Product()))
-                            .contentType("application/json"))
-                    .andDo(MockMvcResultHandlers.print())
-                    .andExpect(status().isOk());
-        } catch (Exception e) {
-            System.out.println("Exception: " + e);
-        }
-    }
+//    @Test
+//    public void requestBodyTest() {
+//        try {
+//            when(productApi.findAll()).thenReturn((ResponseEntity<List<Product>>) productRepository.findAll());
+//            mockMvc
+//                    .perform(get("/api/v1/products")
+//                            .content(String.valueOf(new Product()))
+//                            .contentType("application/json"))
+//                    .andDo(MockMvcResultHandlers.print())
+//                    .andExpect(status().isOk());
+//        } catch (Exception e) {
+//            System.out.println("Exception: " + e);
+//        }
+//    }
 }

@@ -23,6 +23,7 @@ public class Order {
     private long id;
     @CreatedDate
     private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
     private int status;
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private Set<OrderDetail> orderDetails;

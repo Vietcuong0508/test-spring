@@ -1,5 +1,6 @@
 package com.example.springboot.seeder;
 
+import com.example.springboot.entity.Category;
 import com.example.springboot.entity.Product;
 import com.example.springboot.repository.ProductRepository;
 import com.github.javafaker.Faker;
@@ -11,10 +12,31 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-//@Component
-//public class ProductSeeder implements CommandLineRunner {
-//    @Autowired
-//    ProductRepository productRepository;
+@Component
+public class ProductSeeder // implements CommandLineRunner
+{
+    @Autowired
+    ProductRepository productRepository;
+
+    private static final int NUMBER_OF_PRODUCT = 100;
+
+    public static ArrayList<Product> products;
+
+    public void generate() {
+        Random random = new Random();
+        Faker faker = new Faker();
+        int maxIndexCategory = CategorySeeder.categories.size() - 1;
+        int minIndexCategory = 0;
+        products = new ArrayList<>();
+        for (int i = 0; i < NUMBER_OF_PRODUCT; i++) {
+            Product product = Product.builder()
+                    .name(faker.name().name())
+                    .category(CategorySeeder.categories.get(random.nextInt(maxIndexCategory - minIndexCategory) + minIndexCategory))
+                    .build();
+            products.add(product);
+        }
+        productRepository.saveAll(products);
+    }
 //
 //    @Override
 //    public void run(String... args) throws Exception {
@@ -33,4 +55,4 @@ import java.util.Random;
 //        }
 //        productRepository.saveAll(products);
 //    }
-//}
+}

@@ -37,26 +37,26 @@ class ProductRepositoryTest {
         }
     }
 
-    @Test
-    public void findAllByName() {
-        List<Product> list = productRepository.search("%A%");
-        for (int i = 0; i < list.size(); i++) {
-            System.out.println(list.get(i).toString());
-        }
-    }
+//    @Test
+//    public void findAllByName() {
+//        List<Product> list = productRepository.search("%A%");
+//        for (int i = 0; i < list.size(); i++) {
+//            System.out.println(list.get(i).toString());
+//        }
+//    }
 
-    @Test
-    public void testSaveProduct() {
-        Product product = Product.builder()
-                .name("Cuong")
-                .description("Free")
-                .slug(StringUtil.toSlug("Cuong"))
-                .thumbnail("cuong.png")
-                .price(1000)
-                .status(1)
-                .build();
-        productRepository.save(product);
-    }
+//    @Test
+//    public void testSaveProduct() {
+//        Product product = Product.builder()
+//                .name("Cuong")
+//                .description("Free")
+//                .slug(StringUtil.toSlug("Cuong"))
+//                .thumbnail("cuong.png")
+//                .price(1000)
+//                .status(1)
+//                .build();
+//        productRepository.save(product);
+//    }
 
     @Test
     public void testGetList() {
@@ -66,14 +66,14 @@ class ProductRepositoryTest {
         }
     }
 
-    @Test
-    public void testGetById() {
-        Optional<Product> optionalProduct = productRepository.findById(1);
-        if (optionalProduct.isPresent()) {
-            Product product = optionalProduct.get();
-            System.out.println(product.getName().equals("Cuong"));
-        }
-    }
+//    @Test
+//    public void testGetById() {
+//        Optional<Product> optionalProduct = productRepository.findById(1);
+//        if (optionalProduct.isPresent()) {
+//            Product product = optionalProduct.get();
+//            System.out.println(product.getName().equals("Cuong"));
+//        }
+//    }
 
     @Test
     public void testDelete() {

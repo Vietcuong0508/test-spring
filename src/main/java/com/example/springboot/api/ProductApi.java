@@ -74,27 +74,27 @@ public class ProductApi {
 //        products.remove(foundIndex);
 //        return null;
 //    }
-    @Autowired
-    ProductService productService;
-
-    @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Product> save(@RequestBody Product product) {
-        return ResponseEntity.ok(productService.save(product));
-    }
-
-    @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<List<Product>> findAll() {
-        return ResponseEntity.ok(productService.findAll());
-    }
-
-    @RequestMapping(method = RequestMethod.GET, path = "{id}")
-    public ResponseEntity<?> findById(@PathVariable int id) {
-        Optional<Product> product = productService.findById(id);
-        if (!product.isPresent()) {
-            ResponseEntity.badRequest().build();
-        }
-        return ResponseEntity.ok(product.get());
-    }
+//    @Autowired
+//    ProductService productService;
+//
+//    @RequestMapping(method = RequestMethod.POST)
+//    public ResponseEntity<Product> save(@RequestBody Product product) {
+//        return ResponseEntity.ok(productService.save(product));
+//    }
+//
+//    @RequestMapping(method = RequestMethod.GET)
+//    public ResponseEntity<List<Product>> findAll() {
+//        return ResponseEntity.ok(productService.findAll());
+//    }
+//
+//    @RequestMapping(method = RequestMethod.GET, path = "{id}")
+//    public ResponseEntity<?> findById(@PathVariable int id) {
+//        Optional<Product> product = productService.findById(id);
+//        if (!product.isPresent()) {
+//            ResponseEntity.badRequest().build();
+//        }
+//        return ResponseEntity.ok(product.get());
+//    }
 
 //    @RequestMapping(method = RequestMethod.PUT, path = "{id}")
 //    public ResponseEntity<Product> update(@PathVariable int id, @RequestBody Product product) {
@@ -111,13 +111,13 @@ public class ProductApi {
 //        return ResponseEntity.ok(productService.save(exitsProduct));
 //    }
 
-    @RequestMapping(method = RequestMethod.DELETE, path = "{id}")
-    public ResponseEntity<?> delete(@PathVariable int id) {
-        Optional<Product> product = productService.findById(id);
-        if (!product.isPresent()) {
-            ResponseEntity.badRequest().build();
-        }
-        productService.deleteById(id);
-        return ResponseEntity.ok().build();
-    }
+//    @RequestMapping(method = RequestMethod.DELETE, path = "{id}")
+//    public ResponseEntity<?> delete(@PathVariable int id) {
+//        Optional<Product> product = productService.findById(id);
+//        if (!product.isPresent()) {
+//            ResponseEntity.badRequest().build();
+//        }
+//        productService.deleteById(id);
+//        return ResponseEntity.ok().build();
+//    }
 }

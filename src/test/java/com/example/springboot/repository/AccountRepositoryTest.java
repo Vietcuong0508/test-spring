@@ -15,8 +15,6 @@ import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = SpringbootApplication.class)
 class AccountRepositoryTest {
@@ -27,7 +25,7 @@ class AccountRepositoryTest {
     ProductRepository productRepository;
 
     @Autowired
-    OderRepository oderRepository;
+    OrderRepository oderRepository;
 
     List<Product> products = productRepository.findAll();
 
